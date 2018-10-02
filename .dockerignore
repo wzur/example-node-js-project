@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+docker-compose.yml
+.idea
+.git
+nginx
+test.sh
+venv
+requirements.txt
+Dockerfile

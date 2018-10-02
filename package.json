@@ -1,0 +1,24 @@
+{
+  "name": "@wzur/example-node-js-project",
+  "version": "1.0.0",
+  "description": "A very simple example of Restful API for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "stop": "killall -v node",
+    "test": "curl http://127.0.0.1:8080/message/123456"
+  },
+  "keywords": [],
+  "author": "Waldemar Zurowski <wzurowski@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "body-parser": "^1.18.3",
+    "redis": "^2.8.0"
+  },
+  "bundledDependencies": [
+    "express",
+    "body-parser",
+    "redis"
+  ]
+}
