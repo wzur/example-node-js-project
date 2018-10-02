@@ -17,30 +17,32 @@ messages.on('error', function (err) {
 });
 
 /* Fetch a message for a given SHA */
-router.get('/:sha', function (req, res) {
-    var sha = req.params.sha;
-    console.info('Requested sha: "%s"', sha);
-    messages.get(sha, function (error, message) {
+router.get('/:hash', function (req, res) {
+    var hash = req.params.hash;
+    console.info('Requested hash: "%s"', hash);
+    messages.get(hash, function (error, message) {
         if (error) {
             console.log(error);
             throw error;
         }
         console.log('GET result ->' + message);
         if (message == undefined) {
-            res.status(404).end('Requested sha: ' + req.params.sha);
+            res.status(404).json({err_msg: "Message not found"});
+        } else {
+            res.json({message: message});
         }
-        res.set('Content-Type', 'application/json').end(message);
     });
 });
 
 /* Store a message and return a SHA */
 router.post('/', function (req, res) {
-    var body = req.body.toString();
-    var hash = crypto.createHash('sha256').update(body).digest('hex');
+    var message = req.body.message;
+    var hash = crypto.createHash('sha256').update(message).digest('hex');
     var response = {digest: hash};
-    messages.set(hash, body);
-    console.log(response);
-    res.json(response);
+    messages.set(hash, message);
+    console.log('Message: ' + message);
+    console.log('Response: ' + response);
+    res.status(201).json(response);
 });
 
 module.exports = router;

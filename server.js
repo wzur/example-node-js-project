@@ -1,7 +1,7 @@
 var app = require('express')();
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.raw({type: "application/json"}));
+app.use(bodyParser.json({type: "application/json"}));
 
 var crasher = require('./routes/crasher');
 var message = require('./routes/message');
