@@ -21,7 +21,7 @@ TL;DR
 ```bash
 virtualenv venv
 . venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-lock.txt
 docker-compose up --build -d && python test.py --port 443 --cert-path ./nginx/localhost.crt
 ```
 
@@ -33,6 +33,7 @@ What does it do
 * Orchestrates Nginx to be in a front of the Node.js application and a Redis server to act as a database for
 the application with Docker compose, see [docker-compose.yml]
 * Test the application with a Python script ([test.py]), taken from https://github.com/paxosglobal/devops-test-script
+* Redis database is stored in on a Docker volume
 
 Requirements
 ------------
