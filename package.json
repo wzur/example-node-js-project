@@ -16,6 +16,10 @@
     "body-parser": "^1.18.3",
     "redis": "^2.8.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wzur/example-node-js-project.git"
+  },
   "bundledDependencies": [
     "express",
     "body-parser",
