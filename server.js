@@ -1,13 +1,13 @@
-var app = require('express')();
-var bodyParser = require('body-parser');
+const app = require('express')();
+const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({type: "application/json"}));
 
-var crasher = require('./routes/crasher');
-var message = require('./routes/message');
+const crasher = require('./routes/crasher');
+const message = require('./routes/message');
 
 app.get('/', (req, res) => {
-    res.send('Hello world');
+    res.send('Hello world\n');
 });
 
 app.use('/crasher', crasher);
@@ -19,10 +19,10 @@ app.use(function (req, res, next) {
     res.status(404).end();
 });
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
 
-var server = app.listen(PORT, () => {
-    var port = server.address().port;
+const server = app.listen(PORT, () => {
+    const port = server.address().port;
     console.info('Server started on port %s', port);
 });
