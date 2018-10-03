@@ -74,6 +74,8 @@ The application accepts following environment variables for its configuration
 * `REDIS_PORT`: the port of the Redis server, default is `6379`
 * `PORT`: the port the application should start to listen to, default is `5000`
 
+The crasher part simply ends the `node` process, to simulate a crash of an application.
+
 Dockerized Web Application
 --------------------------
 
