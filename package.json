@@ -12,7 +12,7 @@
   "author": "Waldemar Zurowski <wzurowski@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "body-parser": "^1.18.3",
     "redis": "^2.8.0"
   },
